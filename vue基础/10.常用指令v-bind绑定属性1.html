@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js基础</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+        }
+
+        .bg{
+            background-color: red;
+        }
+
+        .border{
+            border: 2px solid green;
+        }
+    </style>
+</head>
+<body>
+    <!-- 视图区域     -->
+    <div id="app">
+        <button @click="changeClass()">修改类</button>
+        <div class="box" id="test1" v-bind:class="className">
+            教育改变生活！
+        </div>
+        <div class="box" id="test2" v-bind:id="className">
+            教育改变生活！
+        </div>
+        <hr>
+        <!-- 使用语法糖来简化绑定的属性  :prop -->
+        <div class="box" id="test3" :id="className">
+            教育改变生活！
+        </div>
+    </div>
+    <script src="../lib/vue.js"></script>
+    <script>
+        //v-bind 目的： 为了能够使用变量值，或者需要动态修改属性的时候
+
+        /**
+        特点 ：
+            1.使用v-bind时绑定属性，可以直接使用vm实例中的数据
+            2.如果元素上原来就有相同的属性，（如果是类）不会覆盖的，会叠加
+        ***/
+        //创建vue实例 （vm视图模型）
+        let vm = new Vue({
+            el:"#app",//指定元素渲染的挂载位置（根元素节点）,
+            data:{
+                className:"bg"
+            },
+            methods:{
+                changeClass(){
+                    // document.getElementById("test1").className="box border";// 以前做法
+                    // this //在vue实例化参数中写的this ， 一般默认指的当前实例化对象  => vm 
+                    this.className = "border";
+                }
+            }
+        })
+    </script>
+</body>
+</html>

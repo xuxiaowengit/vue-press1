@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js基础</title>
+</head>
+<body>
+    <!-- 视图区域     -->
+    <div id="app">
+        <ol>
+            <!-- v-for 指令： 就是类似于js 中的for 循环 ，写法for in 循环  - 遍历数组 -->
+           <li v-for="item in arr">{{item}}</li> 
+        </ol>
+        <hr>
+        <ol>
+            <!-- v-for 指令： 遍历对象 -->
+            <li v-for="value in obj">{{value}}</li>
+        </ol>
+        <hr>
+        <ul>
+            <!-- v-for 指令 遍历数组（索引值 index）、对象时（键名）应当使用以下方式： -->
+            <li v-for="(item,index) in arr">{{index}}------{{item}}</li> 
+        </ul>
+        <hr>
+        <ul>
+            <!-- v 遍历对象的值， k 遍历对象时的键名 -->
+            <li v-for="(v,k) in obj">{{k}} -------  {{v}}</li>
+        </ul>
+        <hr>
+         <ul>
+             <!-- v-for 遍历数字 ，其实就是按数字的1开始循环到指定的数字位置 -->
+             <li v-for="index in 10">{{index}}</li>
+         </ul>   
+         <hr>
+         <ul>
+             <li v-for="s in str">{{s}}</li>
+         </ul>
+    </div>
+    <script src="../lib/vue.js"></script>
+    <script>
+        // 在列表渲染中 ： 可以渲染 ：数组 ， 数字 ，对象 ，字符串 ，迭代器类型数据
+        // key 属性：
+
+
+        //创建vue实例 （vm视图模型）
+        let vm = new Vue({
+            el:"#app",//指定元素渲染的挂载位置（根元素节点）,
+            data:{
+                arr:['apple','banana','orange'],
+                obj:{
+                    name:"张三",
+                    age:20,
+                    sex:"男"
+                },
+                str:'Thisisavue'
+            },
+            methods:{
+
+            }
+        })
+
+        // for(item in arr){
+
+        // }
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js基础</title>
+</head>
+<body>
+    <!-- 视图区域     -->
+    <div id="app">
+        <!-- v-once 指令： 只对使用当前指令的元素或组件只绑定一次数据的渲染操作，如果后续有变化在vue渲染过程中会直接跳过 - 这可以用于优化更新性能。 -->
+        <h2 v-once>{{title}}</h2>
+        <p>撒阿萨达 - {{title}}</p>
+    </div>
+    <script src="../lib/vue.js"></script>
+    <script>
+        //创建vue实例 （vm视图模型）
+        let vm = new Vue({
+            el:"#app",//指定元素渲染的挂载位置（根元素节点）,
+            data:{
+                title:"哈哈哈哈哈"
+            },
+            methods:{
+
+            }
+        })
+    </script>
+</body>
+</html>

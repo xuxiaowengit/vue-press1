@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js基础</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 视图区域     -->
+    <div id="app">
+        <!-- 
+            都是用于控制元素的显示和隐藏，但是要注意实现的方式不同：
+            
+            使用场景：
+                如果需要频繁的控制元素的显示和隐藏，那么就使用v-show来控制（比如说选项卡，切换显示隐藏）
+
+                如果是那种只需要一次性（次数极少）的关闭之后不显示，或者显示之后不需要关闭的（一般的弹窗对话框）可以使用v-if
+        -->
+
+        <!-- v-show 指令（布尔值） ，通过设置行内样式：display属性来控制元素的显示和隐藏（true显示 ， false 隐藏） -->
+        <div class="box box1" v-show="false">box1</div>
+        <!-- v-if 指令（布尔值），通过插入和删除DOM元素，来控制元素的显示和隐藏（true显示 ， false 隐藏）) -->
+        <div class="box box2" v-if="false">box2</div>
+    </div>
+    <script src="../lib/vue.js"></script>
+    <script>
+        //创建vue实例 （vm视图模型）
+        let vm = new Vue({
+            el:"#app",//指定元素渲染的挂载位置（根元素节点）,
+            data:{
+
+            },
+            methods:{
+
+            }
+        })
+    </script>
+</body>
+</html>

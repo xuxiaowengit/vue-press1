@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js基础</title>
+</head>
+<body>
+    <!-- 视图区域     -->
+    <div id="app">
+        <h3 v-if="week==1">星期一</h3>
+        <h3 v-else-if="week==2">星期二</h3>
+        <h3 v-else>星期三</h3>
+    </div>
+    <script src="../lib/vue.js"></script>
+    <script>
+        //创建vue实例 （vm视图模型）
+        let vm = new Vue({
+            el:"#app",//指定元素渲染的挂载位置（根元素节点）,
+            data:{
+                week:4
+            },
+            methods:{
+
+            }
+        })
+    </script>
+</body>
+</html>

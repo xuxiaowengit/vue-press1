@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js基础</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+        }
+
+        .bg{
+            background-color: red;
+        }
+
+        .border{
+            border: 2px solid green;
+        }
+
+        .shadow{
+            box-shadow: 0 0 10px purple;
+        }
+    </style>
+</head>
+<body>
+    <!-- 视图区域     -->
+    <div id="app">
+        <button @click="changeClass('bg')">添加背景</button>
+        <button @click="changeClass('border')">添加边框</button>
+        <button @click="changeClass('shadow')">添加阴影</button>
+        <div class="box" v-bind:class="className">
+            教育改变生活！
+        </div>
+    </div>
+    <script src="../lib/vue.js"></script>
+    <script>
+        /*
+            vue 绑定类属性的三种方式（值）：
+                1.字符串 （操作一个类）
+                2.数组  （操作多个类）
+                3.对象 （实现多个类样式间切换）控制对象中属性的键值（布尔值）实现类的添加和删除
+        
+        */
+        //创建vue实例 （vm视图模型）
+        let vm = new Vue({
+            el:"#app",//指定元素渲染的挂载位置（根元素节点）,
+            data:{
+                // className:"",
+                // className:[]
+                className:{
+                    border:false,
+                    bg:false,
+                    shadow:false,
+                },
+            },
+            methods:{
+                changeClass(className){
+                    // this.className = className;
+
+                    // this.className.push(className);
+
+                    // if(!this.className.includes(className)){
+                    //     this.className.push(className);
+                    // }
+                    
+                    //如果类已经存在就删除，不存在就添加
+                //    if(this.className.includes(className)){
+                //         var index = this.className.indexOf(className);
+                //         this.className.splice(index,1);
+                //    }else{
+                //         this.className.push(className);
+                //    }
+
+                    //使用类的对象的数据类型实现控制添加的toogle
+                    this.className[className] = !this.className[className];
+                }
+            }
+        })
+    </script>
+</body>
+</html>

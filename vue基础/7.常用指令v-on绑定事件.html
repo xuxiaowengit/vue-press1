@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js基础</title>
+</head>
+<body>
+    <!-- 视图区域     -->
+    <div id="app">
+        <!-- v-on: 指令 来对vue实例模板中的元素绑定事件  （方式一）
+            用法： v-on:事件名="方法"
+        -->
+        <button v-on:click="abc()">按钮</button>
+
+        <!-- vue为了简化事件的绑定 ，提供了语法糖的写法 （ 方式二）
+            用法：@事件名="方法"
+        -->
+        <button @click="abc()">语法糖按钮</button>
+
+        <hr>
+        <button @mouseover="ss()">鼠标悬停事件</button>
+    </div>
+    <script src="../lib/vue.js"></script>
+    <script>
+        // function abc(){
+        //     alert(12312131);
+        // }
+        //创建vue实例 （vm视图模型）
+        let vm = new Vue({
+            el:"#app",//指定元素渲染的挂载位置（根元素节点）,
+            data:{
+
+            },
+            methods:{
+                abc(){
+                    alert('这是调用了vm实例中的abc方法');
+                },
+                ss(){
+                    alert('sssss');
+                }
+            }
+        })
+    </script>
+</body>
+</html>

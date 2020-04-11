@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 跟jQuery 一样的引入 压缩版省去了很多的开发提示，和数据的检验 ，如果说刚开始接触建议使用不压缩的版本-->
+    <div id="app">
+        <h2>{{title}}</h2>
+    </div>
+    <script src="../lib/vue.js"></script>
+    <script>
+        // $()  工厂函数
+        // Vue()构造函数 ，需要使用new 关键字来实例化
+        //vm = > viewmodel 视图模型
+       let vm = new Vue({
+           el:"#app",//element 指定vue的视图模型渲染的挂载元素(vue渲染之后元素的插入位置)
+           data:{//一般用于需要渲染在视图中的数据
+                title:"欢迎使用vue.js!"
+           },
+           methods:{//在当前视图模型中需要使用的方法
+
+           },
+        //    template:`<div><h1>欢迎使用Vue</h1>
+        // <p>{{10 + 20 }}</p></div>`,//vue的视图模板（html布局结构模板），如果没有指定template ，那么vue会默认把el指定元素中的内容当做是模板
+       }); //实例化一个vue
+    </script>
+</body>
+</html>

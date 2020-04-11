@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js基础</title>
+    <style>
+        /* 通过v-cloak指令  */
+       [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 视图区域     -->
+    <div id="app" v-cloak>
+        <h1>{{title}}</h1>
+    </div>
+    <script src="../lib/vue.js"></script>
+    <script>
+        //创建vue实例 （vm视图模型）
+        let vm = new Vue({
+            el:"#app",//指定元素渲染的挂载位置（根元素节点）, //可以不写，通过手动方式调用也可以
+            data:{
+                title:"欢迎使用vue框架！"
+            },
+            methods:{
+
+            }
+        })
+
+        //手动调用
+        // vm.$mount("#app");
+    </script>
+</body>
+</html>
