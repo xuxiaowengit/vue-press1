@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" oninput="inputHandler(event)" v-model="title">
+    <p id="p1">{{title}}</p>
+    <p id="p2">{{title}}</p>
+    <p id="p3">{{title}}</p>
+    <!-- <p>显示内容-{{title}}</p>
+    <p>显示内容-{{title}}</p>
+    <p>显示内容-{{title}}</p> -->
+<script src="./js/Observer.js"></script>
+<script src="./js/Subject.js"></script>
+    <script>
+        function inputHandler(e){
+            // console.log('输入内容事件...');
+            obj.title = e.target.value;
+        }
+
+        var obj = {
+            store:{},//存储数据的仓库
+        };
+        // var store = {};//存储数据的仓库
+        
+        Object.defineProperty(obj,"title",{
+            get(){
+               return this.store['title'];  
+            },
+            set(value){
+                console.log('正在修改对象的title属性：',value);
+                this.store['title'] = value;
+                //可以在这进行向订阅者发布订阅信息
+                //当视图中有使用到该属性的地方位置（订阅者），就会调用各自的更新方法
+                subject.publish(value);
+            }
+        })
+
+        var p1 = document.getElementById("p1");
+        var p2 = document.getElementById("p2");
+        var p3 = document.getElementById("p3");
+
+        //创建观察目标对象
+        var subject = new Subject();
+
+        //创建对应的观察对象
+        var observer1 = new Observer(p1);
+        var observer2 = new Observer(p2);
+        var observer3 = new Observer(p3);
+
+        //添加订阅者
+        subject.subscribe(observer1);
+        subject.subscribe(observer2);
+        subject.subscribe(observer3);
+
+</script>
+</body>
+</html>

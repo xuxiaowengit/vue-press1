@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //ES6新增 Oject.defineProperty() 给对象添加属性 ，但是对了一些对象属性的劫持操作
+        var obj = {};
+        var oName = "张三";
+
+            // obj.name = "张三";
+        Object.defineProperty(obj,'name',{
+            // value:"张三",
+            // writable: false,
+            get(){//在获取该属性的时候 做出一些额外的处理操作（好比半路杀出个程咬金）
+                console.log('正在获取obj的name属性');
+                return oName;
+            },
+            set(value){//在设置该属性的时候，可以做出一些额外的操作（半路劫持）
+                console.log('正在设置obj对象的name属性',value);
+                // this.name = value;
+                oName = value;
+            }
+        })    
+
+        console.log(obj)
+
+        //ES6新增 Proxy 对象
+
+    </script>
+</body>
+</html>
