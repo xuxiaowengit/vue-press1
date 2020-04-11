@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="js/Subject.js"></script>
+    <script src="js/Observer.js"></script>
+    <script>
+        //创建一个观察目标对象实例
+        var subjet  = new Subject();  //相当于售楼部
+
+        //创建几个观察者对象 (在登记的时候还会登记：需求，联系方式) ，暂时都按照相同的需求处理（4房）
+        var observer1 = new Observer('老王'); //老王
+        var observer2 = new Observer('老李'); //老李
+        var observer3 = new Observer('老钟'); //老钟
+
+        //将订阅的信息记录 （订阅）
+         subjet.subscribe(observer1); //登记了老王
+         subjet.subscribe(observer2); //登记了老李
+         subjet.subscribe(observer3); //登记了老钟
+
+        //售楼部有4房，需要向所有的订阅者（留下联系方式的顾客）通知
+        //    subjet.publish(); 
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js基础</title>
+</head>
+<body>
+    <!-- 视图区域     -->
+    <div id="app">
+        <h1 v-pre>{{title}}</h1>
+    </div>
+    <script src="../lib/vue.js"></script>
+    <script>
+        // 可以用来显示原始 Mustache 标签  ，需要展示代码 ， 跳过一些不需要解析的模板可以提高性能。
+        //创建vue实例 （vm视图模型）
+        let vm = new Vue({
+            el:"#app",//指定元素渲染的挂载位置（根元素节点）,
+            data:{
+                title:"哈哈哈啊哈哈哈"
+            },
+            methods:{
+
+            }
+        })
+    </script>
+</body>
+</html>

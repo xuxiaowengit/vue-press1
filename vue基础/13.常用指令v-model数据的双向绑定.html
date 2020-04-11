@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js基础</title>
+</head>
+<body>
+    <!-- 视图区域     -->
+    <div id="app">
+        <input type="text" v-model="title">
+        <h1>{{title}}</h1>
+        <p>{{title}}</p>
+    </div>
+    <script src="../lib/vue.js"></script>
+    <script>
+        /*
+            单向绑定：可以将模型(M)中的数据，渲染到视图中(v)  m = > v  ， 在直接修改视图中的数据时，不会影响到模型中的数据
+
+            双向绑定：数据渲染从M = >  V , 然后可以通过一些表单（输入）控件 来修改模型中的数据(一旦模型中的数据发生改变就会触发重新渲染到视图)：V = > M   ===>  MVVM模式
+
+        */
+        //创建vue实例 （vm视图模型）
+        let vm = new Vue({
+            el:"#app",//指定元素渲染的挂载位置（根元素节点）,
+            data:{
+                title:"教育改变生活！"
+            },
+            methods:{
+
+            }
+        })
+    </script>
+</body>
+</html>
